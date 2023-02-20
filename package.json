@@ -14,7 +14,10 @@
     "prepare": "husky install",
     "pre-commit": "lint-staged --concurrent false",
     "test": "vitest",
-    "test:ci": "vitest run --coverage"
+    "test:ci": "vitest run --coverage",
+    "e2e": "cypress open --config baseUrl=http://localhost:5173",
+    "e2e:headless": "start-server-and-test dev http://localhost:5173 'cypress run --config baseUrl=http://localhost:5173'",
+    "e2e:ci": "vite build && start-server-and-test preview http://localhost:4173 'cypress run --config baseUrl=http://localhost:4173'"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -22,10 +25,12 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "@testing-library/cypress": "^9.0.0",
     "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/node": "^18.14.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/testing-library__jest-dom": "^5.14.5",
@@ -34,8 +39,10 @@
     "@vitejs/plugin-react": "^3.1.0",
     "@vitest/coverage-istanbul": "^0.28.5",
     "autoprefixer": "^10.4.13",
+    "cypress": "^12.6.0",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
@@ -48,6 +55,7 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.3",
+    "start-server-and-test": "^1.15.4",
     "stylelint": "^15.2.0",
     "stylelint-config-standard": "^30.0.1",
     "tailwindcss": "^3.2.7",
