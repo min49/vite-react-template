@@ -6,7 +6,6 @@ const config = {
   theme: {
     extend: {},
   },
-  experimental: {optimizeUniversalDefaults: true},
   plugins: [formsPlugin],
 }
 module.exports = config
