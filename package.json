@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && pnpm msw:cleanup",
+    "msw:cleanup": "rm dist/mockServiceWorker.js",
     "preview": "vite preview",
     "run-tsc": "tsc",
     "run-eslint": "eslint --fix .",
@@ -39,6 +40,7 @@
     "@vitejs/plugin-react": "3.1.0",
     "@vitest/coverage-istanbul": "0.28.5",
     "autoprefixer": "10.4.13",
+    "cross-fetch": "3.1.5",
     "cypress": "12.6.0",
     "eslint": "8.34.0",
     "eslint-config-prettier": "8.6.0",
@@ -51,6 +53,7 @@
     "husky": "8.0.3",
     "jsdom": "21.1.0",
     "lint-staged": "13.1.2",
+    "msw": "1.0.1",
     "npm-run-all": "4.1.5",
     "postcss": "8.4.21",
     "prettier": "2.8.4",
@@ -72,5 +75,8 @@
       "eslint --fix",
       "vitest related --run --coverage=false"
     ]
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

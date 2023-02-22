@@ -1,9 +1,19 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+const apiUrl = import.meta.env.VITE_API_URL
+
 function App() {
   const [count, setCount] = useState(0)
+  const [username, setUsername] = useState('')
+
+  useEffect(() => {
+    fetch(`${apiUrl}/user`)
+      .then(res => res.json())
+      .then(({username}) => setUsername(username))
+      .catch(err => console.error(err))
+  }, [])
 
   return (
     <div className="App">
@@ -16,6 +26,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <h2>Hello {username}!</h2>
       <div className="card">
         <button onClick={() => setCount(count => count + 1)}>
           count is {count}
