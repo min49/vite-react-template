@@ -1,21 +1,22 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 
+import {useUser} from 'services/userService'
 import reactLogo from './assets/react.svg'
 
 import './App.css'
 
-const apiUrl = import.meta.env.VITE_API_URL
-
 function App() {
   const [count, setCount] = useState(0)
-  const [username, setUsername] = useState('')
+  const {status, data, error} = useUser()
 
-  useEffect(() => {
-    fetch(`${apiUrl}/user`)
-      .then(res => res.json())
-      .then(({username}) => setUsername(username))
-      .catch(err => console.error(err))
-  }, [])
+  let username = ''
+  if (status === 'loading') {
+    username = '...'
+  } else if (status === 'error') {
+    console.error('Error loading User.', error)
+  } else {
+    username = data.username
+  }
 
   return (
     <div className="App">
