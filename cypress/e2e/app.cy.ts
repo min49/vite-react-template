@@ -1,6 +1,6 @@
 describe('App', () => {
   it('should display welcome message', () => {
-    cy.visit('/')
+    cy.visit('/profile')
     cy.contains('Hello World!')
   })
 })
