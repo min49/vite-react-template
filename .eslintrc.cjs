@@ -32,6 +32,9 @@ const config = {
     {
       files: ['**/*.ts?(x)'],
       extends: ['plugin:@typescript-eslint/recommended'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'error',
+      },
     },
     {
       files: ['**/*.ts?(x)'],
