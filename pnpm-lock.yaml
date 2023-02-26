@@ -39,7 +39,7 @@ specifiers:
   prettier-plugin-tailwindcss: 0.2.3
   react: 18.2.0
   react-dom: 18.2.0
-  react-router-dom: ^6.8.1
+  react-router-dom: 6.8.1
   start-server-and-test: 1.15.4
   stylelint: 15.2.0
   stylelint-config-standard: 30.0.1

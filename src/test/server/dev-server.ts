@@ -1,11 +1,13 @@
-import {setupWorker} from 'msw'
-
-import {handlers} from './server-handler'
-
 let server
 if (process.env.NODE_ENV === 'development') {
-  server = setupWorker(...handlers)
-  server.start()
+  try {
+    const {setupWorker} = await import('msw')
+    const {handlers} = await import('./server-handler')
+    server = setupWorker(...handlers)
+    server.start()
+  } catch (error) {
+    console.error('Failed to set up MSW server handlers.', error)
+  }
 } else {
   server = {}
 }
