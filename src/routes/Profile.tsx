@@ -1,4 +1,4 @@
-import {useUser} from 'services/userService'
+import {useUser} from '@/services/userService'
 
 export default function Profile() {
   const {status, data, error} = useUser()

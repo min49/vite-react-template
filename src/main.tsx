@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import App from 'App'
-import {AppProviders} from 'context'
+import App from '@/App'
+import {AppProviders} from '@/context'
 
-import 'test/server/dev-server'
+import '@/test/server/dev-server'
 
 import './index.css'
 

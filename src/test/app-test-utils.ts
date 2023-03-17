@@ -1,6 +1,6 @@
 import {render, RenderOptions} from '@testing-library/react'
 
-import {AppProviders} from 'context'
+import {AppProviders} from '@/context'
 
 async function renderWithProviders(
   ui: React.ReactElement,

@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event'
 
-import App from 'App'
-import {renderWithProviders, screen} from 'test/app-test-utils'
+import App from '@/App'
+import {renderWithProviders, screen} from '@/test/app-test-utils'
 
 describe('<App />', () => {
   it('renders', async () => {

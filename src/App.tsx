@@ -1,8 +1,8 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
-import Home from 'routes/Home'
-import Profile from 'routes/Profile'
-import Root from 'routes/Root'
+import Home from '@/routes/Home'
+import Profile from '@/routes/Profile'
+import Root from '@/routes/Root'
 
 const router = createBrowserRouter([
   {

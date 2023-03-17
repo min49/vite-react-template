@@ -1,14 +1,17 @@
 /// <reference types="vitest" />
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 import eslint from 'vite-plugin-eslint'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig(({mode}) => {
   const conditionalPlugins = mode === 'test' ? [] : [eslint()]
 
   return {
+    resolve: {
+      alias: [{find: '@', replacement: path.resolve(__dirname, 'src')}],
+    },
     test: {
       globals: true,
       environment: 'jsdom',
@@ -18,6 +21,6 @@ export default defineConfig(({mode}) => {
         reporter: ['text', 'lcov'],
       },
     },
-    plugins: [react(), tsconfigPaths(), ...conditionalPlugins],
+    plugins: [react(), ...conditionalPlugins],
   }
 })

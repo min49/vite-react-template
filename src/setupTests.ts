@@ -1,6 +1,6 @@
 import {fetch} from 'cross-fetch'
 
-import {server} from 'test/server/test-server'
+import {server} from '@/test/server/test-server'
 
 import '@testing-library/jest-dom'
 

@@ -1,10 +1,3 @@
-const fs = require('fs')
-
-const foldersUnderSrc = fs
-  .readdirSync('src', {withFileTypes: true})
-  .filter(dirent => dirent.isDirectory())
-  .map(dirent => dirent.name)
-
 const config = {
   env: {
     browser: true,
@@ -46,7 +39,7 @@ const config = {
               // Packages `react` related packages come first.
               ['^react$', '^react-dom/', '^vite$', '^@?\\w'],
               // Absolute imports and Relative imports.
-              ['^App$', `^(${foldersUnderSrc.join('|')})(/.*|$)`, '^\\.'],
+              ['^@/', '^\\.'],
               // Side effect imports.
               ['^\\u0000'],
               // Style imports.
